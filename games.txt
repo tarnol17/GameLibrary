@@ -1,27 +1,22 @@
 SilkSong
 Team Cherry
 Metroidvania
-78.1 19.99 2026
-
+78.1 19.99 2025
 Haunted Chocolatier
 ConcernedApe
 Simulation
 50.0 15.99 2027
-
 Stardew Valley
 ConcernedApe
 Simulation
 234.8 14.99 2016
-
 Projekt Zomboid
 The Indie Stone
 Survival
 59.1 20.00 2024
-
 Lethal Company
 Zeekerss
 38.2 9.99 2023
-
 MINDWAVE
 HoloHammers
 70.0 9.99 2028
