@@ -1,7 +1,22 @@
+/**
+ * @file main.cpp
+ * @author Christian McKenzie
+ * @author Tyson Arnold
+ * @date 2025-04-04
+ * @brief Main program for the Game Library
+ * 
+ * Interface for managing the game library.
+ */
+
 #include <iostream>
+#include "library.h"
+#include "library.cpp"
 #include <string>
 using namespace std;
 
+/**
+ * @brief Displays the menu options to the user.
+ */
 void display_menu() {
     cout << "Game Library Menu" << endl;
     cout << "1. Add Game" << endl; 
@@ -16,6 +31,7 @@ void display_menu() {
 }
 
 int main() {
+    Library library;
     int choice = 0;
 
     while (choice != 8) {
@@ -24,29 +40,66 @@ int main() {
         cin.ignore();
 
         if (choice == 1) {
-            cout << "Option 1: Add Game selected." << endl;
+            string title, publisher, genre;
+            float hours_played, price;
+            int year;
+            cout << "Enter Title: ";
+            getline(cin, title);
+            cout << "Enter Publisher: ";
+            getline(cin, publisher);
+            cout << "Enter Genre: ";
+            getline(cin, genre);
+            cout << "Enter Hours Played: ";
+            cin >> hours_played;
+            cout << "Enter Price: ";
+            cin >> price;
+            cout << "Enter Year: ";
+            cin >> year;
+            cin.ignore();
+            
+            Game g(title, publisher, genre, hours_played, price, year);
+            library.insert_sorted(g);
         } 
         else if (choice == 2) {
-            cout << "Option 2: Find by Genre selected." << endl;
+            string genre;
+            cout << "Enter Genre: ";
+            getline(cin, genre);
+            library.find_genre(genre);
         } 
         else if (choice == 3) {
-            cout << "Option 3: Find by Title selected." << endl;
+            string title;
+            cout << "Enter Title: ";
+            getline(cin, title);
+            library.find_game(title);
         } 
         else if (choice == 4) {
-            cout << "Option 4: Delete Game selected." << endl;
+            string title;
+            int year;
+            cout << "Enter Title: ";
+            getline(cin, title);
+            cout << "Enter Year: ";
+            cin >> year;
+            cin.ignore();
+            library.delete_game(title, year);
         } 
         else if (choice == 5) {
-            cout << "Option 5: Display All Games selected." << endl;
+            library.printall();
         } 
         else if (choice == 6) {
-            cout << "Option 6: Load from File selected." << endl;
-        } 
+            string filename;
+            cout << "Enter filename ";
+            getline(cin, filename);
+            library.load(filename);
+        }
         else if (choice == 7) {
-            cout << "Option 7: Save to File selected." << endl;
-        } 
+            string filename;
+            cout << "Enter filename ";
+            getline(cin, filename);
+            library.save(filename);
+        }
         else if (choice == 8) {
-            cout << "Exiting..."v;
-        } 
+            cout << "Goodbye\n";
+        }
         else {
             cout << "Invalid choice. Please try again." << endl;
         }
