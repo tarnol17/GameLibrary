@@ -1,3 +1,9 @@
+# @file Makefile
+# @author Christian McKenzie
+# @author Tyson Arnold
+# @date 2025-04-04
+# @brief Makefile for the game library 
+
 CC = g++
 CFLAGS = -Wall -std=c++11
 
